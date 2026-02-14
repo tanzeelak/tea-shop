@@ -1,6 +1,14 @@
-- Vision
+- Vision for Virtual Tea Shop
     - open store front
-    - blacks are drawn up
+    - kiosk style
+    - enchanted vibe
+    - you can move around the screen
+    - no scroll
+    - smoke
+    - fish eye effect
 
 
-- we're 
+Vibe options
+- enchanted
+- cyberpunk
+- tech-y visual
