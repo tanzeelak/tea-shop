@@ -162,6 +162,28 @@ body {
   background: linear-gradient(180deg, #3d2e1e 0%, #5a432e 4%, #d4b896 7%, #e8d5b8 18%, #ece0c9 100%);
   overflow: hidden;
   box-shadow: inset 0 0 80px rgba(255, 180, 80, 0.08);
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.scene-3d {
+  position: absolute;
+  inset: -4%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.fisheye-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 55;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 65% at 50% 50%,
+    transparent 50%,
+    rgba(20, 10, 5, 0.25) 80%,
+    rgba(10, 5, 2, 0.6) 100%
+  );
 }
 
 /* -- Ceiling & Beams -- */
