@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cha Lounge | Enchanted Tea Shop</title>
+    <title>cha lounge</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,6 +13,38 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Door entrance overlay -->
+    <div class="door-overlay" id="doorOverlay">
+      <div class="door-facade">
+        <!-- Transom window above doors -->
+        <div class="door-transom">
+          <span class="transom-text">cha lounge</span>
+        </div>
+        <!-- Double doors -->
+        <div class="door-frame">
+          <div class="door-panel door-left">
+            <div class="door-window">
+              <div class="window-glare"></div>
+            </div>
+            <div class="door-raised-panel"></div>
+            <div class="door-raised-panel"></div>
+          </div>
+          <div class="door-panel door-right">
+            <div class="door-window">
+              <div class="window-glare"></div>
+            </div>
+            <div class="door-raised-panel"></div>
+            <div class="door-raised-panel"></div>
+            <button class="door-knob" id="doorKnob" aria-label="Open the door">
+              <div class="knob-plate"></div>
+              <div class="knob-handle"></div>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- Floating fireflies -->
     <div class="fireflies" aria-hidden="true">
       <div class="firefly"></div>
@@ -30,13 +62,12 @@
         <!-- ====== TEA STOREFRONT SCENE ====== -->
         <section class="shop-scene" id="shop">
           <div class="shop-frame">
-            <div class="scene-3d">
             <!-- Hanging shop sign -->
             <div class="shop-sign">
               <div class="sign-chain sign-chain-l" aria-hidden="true"></div>
               <div class="sign-chain sign-chain-r" aria-hidden="true"></div>
               <div class="sign-board">
-                <h1 class="sign-name">Cha Lounge</h1>
+                <h1 class="sign-name">cha lounge</h1>
               </div>
             </div>
             <!-- Ceiling -->
@@ -178,11 +209,6 @@
                 <div class="plank"></div>
               </div>
             </div>
-            </div><!-- /scene-3d -->
-
-            <!-- Fisheye vignette -->
-            <div class="fisheye-vignette" aria-hidden="true"></div>
-
             <!-- Tea detail popup -->
             <div class="tea-popup" id="teaPopup" hidden>
               <img class="popup-img" src="assets/tea-leaves.png" alt="Tea leaves" />
@@ -254,35 +280,21 @@
           btn.addEventListener("mouseleave", hidePopup);
         });
 
-        // -- 3D look-around effect --
-        const scene = document.querySelector(".scene-3d");
-        const frame = document.querySelector(".shop-frame");
-        const maxRotY = 4;
-        const maxRotX = 2.5;
-        let targetX = 0, targetY = 0;
-        let currentX = 0, currentY = 0;
+      })();
 
-        frame.addEventListener("mousemove", (e) => {
-          const rect = frame.getBoundingClientRect();
-          const px = (e.clientX - rect.left) / rect.width;
-          const py = (e.clientY - rect.top) / rect.height;
-          targetY = (px - 0.5) * 2 * maxRotY;
-          targetX = (py - 0.5) * -2 * maxRotX;
+      // -- Door entrance effect --
+      (() => {
+        const overlay = document.getElementById("doorOverlay");
+        if (!overlay) return;
+
+        const knob = document.getElementById("doorKnob");
+        knob.addEventListener("click", () => {
+          overlay.classList.add("door-opening");
+
+          overlay.querySelector(".door-left").addEventListener("transitionend", () => {
+            overlay.remove();
+          });
         });
-
-        frame.addEventListener("mouseleave", () => {
-          targetX = 0;
-          targetY = 0;
-        });
-
-        function tick() {
-          currentX += (targetX - currentX) * 0.08;
-          currentY += (targetY - currentY) * 0.08;
-          scene.style.transform =
-            `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
-          requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
       })();
     </script>
   </body>

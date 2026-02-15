@@ -2,17 +2,19 @@
     - open store front
     - kiosk style
     - enchanted vibe
-    - you can move around the screen
-    - no scroll
-    - smoke
-    - fish eye effect
-    - make the jar panels have a glass effect
-    - 
+    - move around the screen + fish eye
 
-
-Vibe options
+Potential vibes
 - enchanted
 - cyberpunk
 - tech-y visual
 - hyperrealistic assets. here's the icons and put them in AI
 - the literal leaves
+
+TODOs
+    - make the jar panels have a glass
+    - tea cups with smoke
+    - remove the parallax effect
+    - make an icon
+    - use the icon
+    - deploy the website
