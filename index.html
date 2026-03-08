@@ -16,19 +16,152 @@
       }
 
       .shop-art {
+        position: relative;
         width: min(92vw, 90vh);
+        max-height: 100vh;
+        overflow: hidden;
+      }
+
+      .shop-inner {
+        position: relative;
+        transform: translateY(-15%);
       }
 
       .shop-art object {
+        display: block;
         width: 100%;
         height: auto;
         filter: none;
+      }
+
+      .jar-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .jar-btn {
+        pointer-events: auto;
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid #1a1a1a;
+        background: rgba(255, 255, 255, 0.85);
+        cursor: pointer;
+        transform: translate(-50%, -50%);
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 300;
+        color: #1a1a1a;
+        font-family: system-ui, sans-serif;
+      }
+
+      .jar-btn:hover {
+        background: #1a1a1a;
+        color: #fff;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+
+      .tea-popover {
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1.5px solid #1a1a1a;
+        border-radius: 6px;
+        padding: 10px 12px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        transform: translateX(-50%) translateY(4px);
+        font-family: system-ui, sans-serif;
+      }
+
+      .jar-btn:hover .tea-popover {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .tea-popover .pop-name {
+        font-size: 13px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 4px;
+      }
+
+      .tea-popover .pop-desc {
+        font-size: 11px;
+        font-weight: 400;
+        color: #444;
+        line-height: 1.4;
+        line-height: 1.4;
       }
     </style>
   </head>
   <body>
     <div class="shop-art">
+      <div class="shop-inner">
       <object id="shop-svg" type="image/svg+xml" data="assets/tea-shop-edges.svg"></object>
+      <div class="jar-overlay" id="jarOverlay">
+        <button class="jar-btn" style="left: 5%; top: 62%;" data-tea="Oolong Oasis">
+          +
+          <div class="tea-popover">
+            <div class="pop-name">Oolong Oasis</div>
+            <div class="pop-desc">Silky oolong steeped with wintermelon nectar, bright lemon zest, and a drizzle of golden agave.</div>
+
+          </div>
+        </button>
+        <button class="jar-btn" style="left: 14%; top: 63%;" data-tea="Yuzu Blossom">
+          +
+          <div class="tea-popover">
+            <div class="pop-name">Yuzu Blossom</div>
+            <div class="pop-desc">Delicate white tea kissed by sun-ripened yuzu and crushed grape petals.</div>
+
+          </div>
+        </button>
+        <button class="jar-btn" style="left: 23%; top: 61%;" data-tea="Jasmine White Tea">
+          +
+          <div class="tea-popover">
+            <div class="pop-name">Jasmine White Tea</div>
+            <div class="pop-desc">Pure white tea leaves unfurling with the fragrance of moonlit jasmine blossoms.</div>
+
+          </div>
+        </button>
+        <button class="jar-btn" style="left: 53%; top: 60%;" data-tea="Black Rose Tea">
+          +
+          <div class="tea-popover">
+            <div class="pop-name">Black Rose Tea</div>
+            <div class="pop-desc">Bold black tea entwined with crimson rose petals and a whisper of dark honey.</div>
+
+          </div>
+        </button>
+        <button class="jar-btn" style="left: 65%; top: 61%;" data-tea="Bali Blend">
+          +
+          <div class="tea-popover">
+            <div class="pop-name">Bali Blend</div>
+            <div class="pop-desc">Verdant green tea woven with jasmine, wild rose, and enchanted lychee from distant shores.</div>
+
+          </div>
+        </button>
+        <button class="jar-btn" style="left: 75%; top: 61%;" data-tea="Wish">
+          +
+          <div class="tea-popover">
+            <div class="pop-name">Wish</div>
+            <div class="pop-desc">A dreamlike infusion of jasmine, red jujube, and silver-tipped white tea leaves.</div>
+
+          </div>
+        </button>
+      </div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vivus@0.4.6/dist/vivus.min.js"></script>
     <script>
@@ -37,6 +170,24 @@
         duration: 300,
         animTimingFunction: Vivus.EASE,
         start: "autostart"
+      });
+
+      // Debug: click anywhere on the overlay to log position percentages
+      document.getElementById("jarOverlay").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const xPct = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+          const yPct = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+          console.log(`Clicked at: left: ${xPct}%; top: ${yPct}%`);
+        }
+      });
+
+      // Jar button click handler
+      document.querySelectorAll(".jar-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const name = btn.dataset.tea;
+          console.log(`Selected: ${name}`);
+        });
       });
     </script>
   </body>
