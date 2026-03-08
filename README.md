@@ -18,3 +18,8 @@ TODOs
     - make an icon
     - use the icon
     - deploy the website
+
+
+Todos 2.0
+- absolute positioning for buttons
+- take the svg, import into figma, select the strokes, cleanup on figma
