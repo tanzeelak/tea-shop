@@ -7,8 +7,39 @@
     <link rel="icon" href="favicon.ico" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="preload" href="assets/tea-shop-removed-jars-edges.svg" as="image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: flex-start;
+        gap: 2.5rem;
+        z-index: 100;
+        font-family: 'Cormorant Garamond', serif;
+        background: transparent;
+      }
+
+      .navbar a {
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 300;
+        letter-spacing: 0.1em;
+        text-transform: lowercase;
+        transition: opacity 0.2s ease;
+      }
+
+      .navbar a:hover {
+        opacity: 0.6;
+      }
 
       body {
         min-height: 100vh;
@@ -16,7 +47,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
-
+        padding-top: 3rem;
       }
 
       .shop-art {
@@ -137,6 +168,10 @@
     </style>
   </head>
   <body>
+    <nav class="navbar">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+    </nav>
     <div class="shop-art">
       <img id="previewImg" class="preview-img" src="assets/cartoon-tea-cups-lines.png" alt="Tea cups steeping" />
       <div class="shop-inner">

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>about | cha lounge</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: flex-start;
+        gap: 2.5rem;
+        z-index: 100;
+        font-family: 'Cormorant Garamond', serif;
+        background: transparent;
+      }
+
+      .navbar a {
+        color: #1a1a1a;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 300;
+        letter-spacing: 0.1em;
+        text-transform: lowercase;
+        transition: opacity 0.2s ease;
+      }
+
+      .navbar a:hover {
+        opacity: 0.6;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5rem 2rem;
+        font-family: 'Cormorant Garamond', serif;
+              }
+
+      .about-content {
+        max-width: 580px;
+        text-align: center;
+      }
+
+      .about-content p {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.8;
+        color: #1a1a1a;
+        margin-bottom: 1.2rem;
+      }
+
+      .about-content img {
+        width: min(300px, 60vw);
+        height: auto;
+        margin-top: 2rem;
+      }
+
+      .about-content p:last-child {
+        margin-bottom: 0;
+      }
+
+          </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+    </nav>
+    <main class="about-content">
+      <p>For years, we've been brewing, tasting, and blending, curious about how different teas, flowers, and botanicals come together to create something beautiful in a cup.</p>
+      <p>Living in San Francisco, surrounded by builders and entrepreneurs, experimentation is in the air. In tech people prototype ideas; in our kitchen we prototype teas, testing flavors, refining blends, and following curiosity wherever it leads.</p>
+      <p>To us, tea is more than just a drink. It's intentionality. It's nourishment. It's a small ritual that adds richness to everyday life.</p>
+      <p>Every blend we share is something we genuinely love to drink ourselves.</p>
+      <p>We hope you will too.</p>
+      <img src="assets/cartoon-tea-cups-lines.png" alt="Tea cups steeping" />
+    </main>
+  </body>
+</html>
