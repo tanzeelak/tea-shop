@@ -11,8 +11,6 @@ Potential vibes
 
 
 Todos
-- [ ] update the buttons to load only after the animation has completed
-- [ ] get most recent image. feed into grok
-    - extend width-wise
-    - add a "coming soon" sign. then covert back to svg
 - [ ] take the latest svg, import into figma, select the strokes, update the colors
+- [ ] decide how we should allow people to subscribe to our waitlist
+- [ ] add a waitlist button
