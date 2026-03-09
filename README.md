@@ -11,6 +11,7 @@ Potential vibes
 
 
 Todos
+- [ ] take teacup svg and add "cha lounge" text
 - [ ] take the latest svg, import into figma, select the strokes, update the colors
 - [ ] decide how we should allow people to subscribe to our waitlist
 - [ ] add a waitlist button
