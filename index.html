@@ -16,6 +16,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+
       }
 
       .shop-art {
@@ -30,13 +31,28 @@
         transform: translateY(-10%);
       }
 
+      .preview-img {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: min(70vw, 70vh);
+        height: auto;
+        z-index: 10;
+        transition: opacity 0.3s ease;
+      }
+
+      .preview-img.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
       .shop-art object {
         display: block;
         width: 100%;
         height: auto;
         filter: none;
         opacity: 0;
-        transition: opacity 0.3s ease;
       }
 
       .shop-art object.ready {
@@ -122,6 +138,7 @@
   </head>
   <body>
     <div class="shop-art">
+      <img id="previewImg" class="preview-img" src="assets/cartoon-tea-cups-lines.png" alt="Tea cups steeping" />
       <div class="shop-inner">
       <object id="shop-svg" type="image/svg+xml" data="assets/tea-shop-edges-sign.svg"></object>
       <div class="jar-overlay" id="jarOverlay">
@@ -192,6 +209,9 @@
         requestAnimationFrame(function () {
           svgEl.classList.add("ready");
           vivusInstance.play();
+          setTimeout(function () {
+            document.getElementById("previewImg").classList.add("hidden");
+          }, 800);
         });
       });
 
