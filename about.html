@@ -50,11 +50,21 @@
               }
 
       .about-content {
-        max-width: 580px;
-        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        max-width: 900px;
       }
 
-      .about-content p {
+      .about-text {
+        flex: 1 1 400px;
+        max-width: 500px;
+        text-align: left;
+      }
+
+      .about-text p {
         font-size: 1rem;
         font-weight: 300;
         line-height: 1.8;
@@ -62,14 +72,17 @@
         margin-bottom: 1.2rem;
       }
 
-      .about-content img {
-        width: min(300px, 60vw);
-        height: auto;
-        margin-top: 2rem;
+      .about-text p:last-child {
+        margin-bottom: 0;
       }
 
-      .about-content p:last-child {
-        margin-bottom: 0;
+      .about-image {
+        flex: 0 1 250px;
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
       }
 
           </style>
@@ -80,12 +93,15 @@
       <a href="about.html">about</a>
     </nav>
     <main class="about-content">
-      <p>For years, we've been brewing, tasting, and blending, curious about how different teas, flowers, and botanicals come together to create something beautiful in a cup.</p>
-      <p>Living in San Francisco, surrounded by builders and entrepreneurs, experimentation is in the air. In tech people prototype ideas; in our kitchen we prototype teas, testing flavors, refining blends, and following curiosity wherever it leads.</p>
-      <p>To us, tea is more than just a drink. It's intentionality. It's nourishment. It's a small ritual that adds richness to everyday life.</p>
-      <p>Every blend we share is something we genuinely love to drink ourselves.</p>
-      <p>We hope you will too.</p>
-      <img src="assets/cartoon-tea-cups-lines.png" alt="Tea cups steeping" />
+      <div class="about-text">
+        <p>For years, we have been brewing, tasting, and uncovering how different teas and flowers come together to create something beautiful in a cup.</p>
+        <p>Living in San Francisco, we're entrepeneurs, creatives, and scientists. Rigorous prototyping is at the core of each of our blends.</p>
+        <p>To us, tea is more than just a drink. It's intentionality, nourishment, a ritual that adds richness to everyday life. Every blend we share is something we genuinely love.</p>
+        <p>We hope you will too.</p>
+      </div>
+      <div class="about-image">
+        <img src="assets/cartoon-tea-cups-lines.png" alt="Tea cups steeping" />
+      </div>
     </main>
   </body>
 </html>
