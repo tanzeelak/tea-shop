@@ -11,6 +11,7 @@ Potential vibes
 
 
 Todos
+- [ ] update the buttons to load only after the animation has completed
 - [ ] get most recent image. feed into grok
     - extend width-wise
     - add a "coming soon" sign. then covert back to svg

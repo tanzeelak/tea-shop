@@ -172,17 +172,18 @@
     <script src="https://cdn.jsdelivr.net/npm/vivus@0.4.6/dist/vivus.min.js"></script>
     <script>
       var svgEl = document.getElementById("shop-svg");
-      var vivusInstance = new Vivus("shop-svg", {
-        type: "delayed",
-        duration: 300,
-        animTimingFunction: Vivus.EASE,
-        start: "manual"
-      });
+      svgEl.addEventListener("load", function () {
+        var vivusInstance = new Vivus("shop-svg", {
+          type: "delayed",
+          duration: 300,
+          animTimingFunction: Vivus.EASE,
+          start: "manual"
+        });
 
-      // Wait a frame so Vivus has set stroke-dashoffset, then reveal and play
-      requestAnimationFrame(function () {
-        svgEl.classList.add("ready");
-        vivusInstance.play();
+        requestAnimationFrame(function () {
+          svgEl.classList.add("ready");
+          vivusInstance.play();
+        });
       });
 
       // Debug: click anywhere on the overlay to log position percentages
