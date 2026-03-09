@@ -185,11 +185,7 @@
           animTimingFunction: Vivus.EASE,
           start: "manual"
         }, function () {
-          var overlay = document.getElementById("jarOverlay");
-          overlay.querySelectorAll(".jar-btn").forEach(function (btn, i) {
-            btn.style.transitionDelay = (i * 0.07) + "s";
-          });
-          overlay.classList.add("visible");
+          document.getElementById("jarOverlay").classList.add("visible");
         });
 
         requestAnimationFrame(function () {
