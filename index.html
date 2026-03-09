@@ -32,6 +32,12 @@
         width: 100%;
         height: auto;
         filter: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .shop-art object.ready {
+        opacity: 1;
       }
 
       .jar-overlay {
@@ -165,11 +171,18 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vivus@0.4.6/dist/vivus.min.js"></script>
     <script>
-      new Vivus("shop-svg", {
+      var svgEl = document.getElementById("shop-svg");
+      var vivusInstance = new Vivus("shop-svg", {
         type: "delayed",
         duration: 300,
         animTimingFunction: Vivus.EASE,
-        start: "autostart"
+        start: "manual"
+      });
+
+      // Wait a frame so Vivus has set stroke-dashoffset, then reveal and play
+      requestAnimationFrame(function () {
+        svgEl.classList.add("ready");
+        vivusInstance.play();
       });
 
       // Debug: click anywhere on the overlay to log position percentages
