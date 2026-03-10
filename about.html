@@ -78,14 +78,17 @@
       }
 
       .about-image {
-        flex: 0 1 360px;
+        flex: 0 0 360px;
         max-width: 100%;
+        position: relative;
       }
 
-      .about-image img {
+      .about-image object {
+        display: block;
         width: 100%;
         height: auto;
       }
+
 
           </style>
   </head>
@@ -102,8 +105,24 @@
         <p>We hope you will too.</p>
       </div>
       <div class="about-image">
-        <img src="assets/cartoon-tea-cups-lines.png" alt="Tea cups steeping" />
+        <object id="cups-svg" type="image/svg+xml" data="assets/cartoon-tea-cups.svg"></object>
       </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/vivus@0.4.6/dist/vivus.min.js"></script>
+    <script>
+      var svgEl = document.getElementById("cups-svg");
+      svgEl.addEventListener("load", function () {
+        var vivusInstance = new Vivus("cups-svg", {
+          type: "delayed",
+          duration: 200,
+          animTimingFunction: Vivus.EASE,
+          start: "manual"
+        });
+
+        requestAnimationFrame(function () {
+          vivusInstance.play();
+        });
+      });
+    </script>
   </body>
 </html>
